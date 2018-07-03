@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import CalculatorForm from './components/CalculatorForm.js';
+import ResultsDisplay from './components/ResultsDisplay.js';
 import calculateAsync from './services/mockAPI.js';
 
 class App extends Component {
@@ -9,7 +10,12 @@ class App extends Component {
     super(props);
     this.state = {
       occurances: {},
-      currentResult: undefined,
+      currentResult: {
+        "number": undefined,
+        "squareOfSums": undefined,
+        "sumOfSquares": undefined,
+        "value": undefined,
+      },
       lastRequest: undefined,
     }
   }
@@ -18,7 +24,6 @@ class App extends Component {
 
   handleForm(inputNumber){
     let that = this;
-    //update state with timestamp, input, occurances
     const lastDateTime = this.state.lastRequest;
     let curOccurences = this.state.occurances;
     if(this.state.occurances[inputNumber]){
@@ -27,13 +32,11 @@ class App extends Component {
       curOccurences[inputNumber] = 1;
     }
 
-    let resultObj;
     calculateAsync(inputNumber).then(function(result){
-      resultObj = result;
       that.setState({
         "lastRequest": Date.now(),
         "occurances": curOccurences,
-        "currentResult": resultObj
+        "currentResult": result
       })
     });
   }
@@ -45,9 +48,14 @@ class App extends Component {
           <h1 className="App-title">Backstage Calculator</h1>
         </header>
         <CalculatorForm handleForm={this.handleForm.bind(this)}/>
-        <pre>
-          {JSON.stringify(this.state)}
-        </pre>
+        <ResultsDisplay 
+          curNumber={this.state.currentResult.number}
+          curSquareOfSums={this.state.currentResult.squareOfSums}
+          curSumOfSquares={this.state.currentResult.sumOfSquares}
+          curValue={this.state.currentResult.value}
+          curTime={this.state.lastRequest}
+        />
+
       </div>
     );
   }
