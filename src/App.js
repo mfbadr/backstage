@@ -19,8 +19,6 @@ class App extends Component {
       previousRequest: undefined
     }
   }
-  //App state will store:
-  ////previous queries:{ '2': occurences: "3", "last_datetime"}
 
   handleForm(inputNumber){
     let that = this;
@@ -62,7 +60,6 @@ class App extends Component {
           curPreviousTime={this.state.previousRequest}
           curOccurences={curOccurences}
         />
-
       </div>
     );
   }
