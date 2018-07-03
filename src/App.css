@@ -39,10 +39,19 @@
   background-color: #FFB0B2;
   font-weight: bold;
   font-size: 18px;
+  border: none;
 }
 
+*:focus {
+  outline: none;
+}
+
+.submit-button:active {
+  background-color: #E69799;
+}
 #numberInput {
-      display: block;
+    border: none;
+    display: block;
     margin: 1em auto;
     padding: 1em;
     border-radius: 6px;
@@ -50,3 +59,10 @@
     font-size: 18px;
     text-align: center;
 }
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+

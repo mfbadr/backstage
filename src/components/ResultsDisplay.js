@@ -19,17 +19,28 @@ export default class ResultsDisplay extends Component {
   renderResults (){
     //TODO: don't show `1 times`
     const prettyDate = Date(this.props.curTime);
+    let occurencesText = this.props.curOccurences;
+    this.props.curOccurences > 1 ? occurencesText += ' times' : occurencesText += ' time';
     return (
       <div className="results-wrapper">
-        Showing results for <strong>{this.props.curNumber}</strong>
-        <br></br>
-        The sum of squares is <strong>{this.props.curSumOfSquares}</strong>
-        <br></br>
-        The square of sums is <strong>{this.props.curSquareOfSums}</strong>
-        <br></br>
-        The difference is <strong>{this.props.curValue}</strong>
-        <br></br>
-        {this.props.curNumber} has been calculated <strong>{this.props.curOccurences} times</strong> , most recently at {prettyDate}
+        <p className="result-line">
+          Showing results for <strong>{this.props.curNumber.toLocaleString()}</strong>
+        </p>
+        <p className="results-line">
+          The sum of squares is <strong>{this.props.curSumOfSquares.toLocaleString()}</strong>
+        </p>
+        <p className="results-line">
+          The square of sums is <strong>{this.props.curSquareOfSums.toLocaleString()}</strong>
+        </p>
+        <p className="results-line">
+          The difference is <strong>{this.props.curValue.toLocaleString()}</strong>
+        </p>
+        <p className="results-line">
+          <strong>{this.props.curNumber.toLocaleString()}</strong> has been calculated <strong>{occurencesText}</strong> 
+        </p>
+        <p className="results-line">
+          Most recent calculation performed at <strong>{prettyDate}</strong>
+        </p>
       </div>
     )
   }
