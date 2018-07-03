@@ -14,6 +14,7 @@ export default function calculateAsyc(inputNumber){
 
       const value = squareOfSums - sumOfSquares;
       const result =  {
+        "number": inputNumber,
         "squareOfSums": squareOfSums,
         "sumOfSquares": sumOfSquares,
         "value": value,
