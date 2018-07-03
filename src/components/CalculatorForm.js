@@ -26,7 +26,7 @@ export default class CalculatorForm extends Component {
 
   render (){
     return (
-      <div>
+      <div className="form-wrapper">
         <form action="" onSubmit={this.handleSubmit}>
           <label>
             Input a number:
@@ -37,7 +37,7 @@ export default class CalculatorForm extends Component {
               onChange={this.handleChange}
               name="numberInput"/>
           </label>
-          <button type="submit">Submit</button>
+          <button className="submit-button "type="submit">Submit</button>
         </form>
       </div>
     )

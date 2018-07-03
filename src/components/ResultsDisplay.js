@@ -8,7 +8,7 @@ export default class ResultsDisplay extends Component {
 
   renderMessage (){
     return (
-        <div>
+        <div className="results-wrapper">
           <h3>
             Input a number to get started
           </h3>
@@ -20,7 +20,7 @@ export default class ResultsDisplay extends Component {
     //TODO: don't show `1 times`
     const prettyDate = Date(this.props.curTime);
     return (
-      <div>
+      <div className="results-wrapper">
         Showing results for <strong>{this.props.curNumber}</strong>
         <br></br>
         The sum of squares is <strong>{this.props.curSumOfSquares}</strong>
