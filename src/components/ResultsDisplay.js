@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
 export default class ResultsDisplay extends Component {
-  constructor(props) {
-    super(props);
-  };
+  // constructor(props) {
+  //   super(props);
+  // };
 
   renderMessage (){
     return (
