@@ -32,9 +32,10 @@ class App extends Component {
       curOccurences[inputNumber] = 1;
     }
 
+    const dateNow = Date.now().toString();
     calculateAsync(inputNumber).then(function(result){
       that.setState({
-        "lastRequest": Date.now(),
+        "lastRequest": dateNow,
         "occurances": curOccurences,
         "currentResult": result
       })
@@ -42,6 +43,7 @@ class App extends Component {
   }
 
   render() {
+    let curOccurences = this.state.occurances[this.state.currentResult.number] || null;
     return (
       <div className="App">
         <header className="App-header">
@@ -54,6 +56,7 @@ class App extends Component {
           curSumOfSquares={this.state.currentResult.sumOfSquares}
           curValue={this.state.currentResult.value}
           curTime={this.state.lastRequest}
+          curOccurences = {curOccurences}
         />
 
       </div>
