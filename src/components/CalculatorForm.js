@@ -14,6 +14,8 @@ export default class CalculatorForm extends Component {
   handleSubmit (event){
     event.preventDefault();
     // alert(this.state.inputValue);
+    let result = this.props.calculatorFunc(this.state.inputValue);
+    alert(JSON.stringify(result));
   }
 
   handleChange (event){
@@ -41,3 +43,4 @@ export default class CalculatorForm extends Component {
     )
   }
 }
+
