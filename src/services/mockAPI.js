@@ -6,7 +6,6 @@ export default function calculateAsyc(inputNumber){
         squareOfSums += i;
       }
       squareOfSums = Math.pow(squareOfSums, 2)
-      //sum of squares
       let sumOfSquares = 0;
       for (let n = 0; n <= inputNumber; n++) {
         sumOfSquares += Math.pow(n, 2);

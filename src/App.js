@@ -9,7 +9,7 @@ class App extends Component {
   constructor (props){
     super(props);
     this.state = {
-      occurances: {},
+      occurences: {},
       currentResult: {
         "number": undefined,
         "squareOfSums": undefined,
