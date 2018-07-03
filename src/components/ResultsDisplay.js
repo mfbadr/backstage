@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 export default class ResultsDisplay extends Component {
-  //TODO: Restrict to positive integers?
   constructor(props) {
     super(props);
   };
@@ -17,8 +16,14 @@ export default class ResultsDisplay extends Component {
   }
 
   renderResults (){
-    //TODO: don't show `1 times`
-    const prettyDate = Date(this.props.curTime);
+    const prettyDate = new Date(this.props.curTime).toString();
+    let prettyLastDate;
+    if(this.props.curPreviousTime){
+      prettyLastDate =( <p className="results-line">
+          Previous calculation performed at <strong>{new Date(this.props.curPreviousTime).toString()}</strong>
+        </p> )
+    }
+
     let occurencesText = this.props.curOccurences;
     this.props.curOccurences > 1 ? occurencesText += ' times' : occurencesText += ' time';
     return (
@@ -41,6 +46,7 @@ export default class ResultsDisplay extends Component {
         <p className="results-line">
           Most recent calculation performed at <strong>{prettyDate}</strong>
         </p>
+        {prettyLastDate}
       </div>
     )
   }
