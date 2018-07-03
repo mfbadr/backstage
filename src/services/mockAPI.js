@@ -18,7 +18,7 @@ export default function calculateAsyc(inputNumber, occurences, lastDatetime){
         "number": inputNumber,
         "squareOfSums": squareOfSums,
         "sumOfSquares": sumOfSquares,
-        "occurences": occurences,
+        "occurences": occurences + 1,
         "value": value,
       };
 

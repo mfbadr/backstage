@@ -26,19 +26,16 @@ class App extends Component {
   handleForm(inputNumber){
     let that = this;
     const lastDateTime = this.state.lastRequest;
-    let curOccurences = this.state.occurences;
-    if(this.state.occurences[inputNumber]){
-      curOccurences[inputNumber]++
-    } else {
-      curOccurences[inputNumber] = 1;
-    }
 
-    calculateAsync(inputNumber, curOccurences[inputNumber], lastDateTime).then(function(result){
-      // debugger;
+
+    calculateAsync(inputNumber, this.state.occurences[inputNumber] || 0, lastDateTime).then(function(result){
+      let occurencesObj = that.state.occurences;
+      occurencesObj[inputNumber] = result.occurences;
+
       that.setState({
         "lastRequest": result.datetime,
         "previousRequest": result.last_datetime,
-        "occurences": curOccurences,
+        "occurences": occurencesObj,
         "currentResult": {
           "number": result.number,
           "squareOfSums": result.squareOfSums,
@@ -50,7 +47,7 @@ class App extends Component {
   }
 
   render() {
-    let curOccurences = this.state.occurences[this.state.currentResult.number] || null;
+    let curOccurences = this.state.occurences[this.state.currentResult.number];
     return (
       <div className="App">
         <header className="App-header">
