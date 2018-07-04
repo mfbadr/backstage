@@ -32,7 +32,8 @@ export default class CalculatorForm extends Component {
               value={this.state.inputValue}
               type="number"
               id="numberInput"
-              min="0"
+              min="1"
+              max="100"
               step="1"
               onChange={this.handleChange}
               name="numberInput"/>
