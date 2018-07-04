@@ -2,9 +2,13 @@ export default function calculateAsyc(inputNumber, occurences, lastDatetime){
   return new Promise(function(resolve, reject){
     if (true) {
 
-      //closed form solution
+      //closed form formula for sum from 1 to n
+      //http://www.wolframalpha.com/input/?i=sum+of+n+from+1+to+n
       let squareOfSums = ((inputNumber/2)+.5)*inputNumber;
       squareOfSums = Math.pow(squareOfSums, 2)
+
+      //closed form formula for sum of squares from 1 to n
+      //http://www.wolframalpha.com/input/?i=sum+of+n%5E2+from+1+to+n
       const sumOfSquares = inputNumber*(((inputNumber/3) + .5)*inputNumber + (1/6))
 
       /***************
